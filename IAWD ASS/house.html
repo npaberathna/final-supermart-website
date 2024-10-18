@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Supermarket</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.min.css">
+    <style>
+        .dropdown:hover .dropbtn {
+            background-color: #575757;
+        }
+        .dropdown {
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer p {
+            margin-bottom: 10px;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+ .banner {
+        position: relative; /* Container for image and text */
+        width: 100%;
+        height: 350px; /* Set the height of the banner */
+        overflow: hidden; /* Hide any overflow content */
+    }
+
+    .slides {
+    width: 100%;
+    height: 100%;
+}
+
+
+    .banner-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Cover the banner area */
+        object-position: center; /* Center the image */
+        display: block; /* Ensure images are block-level for better alignment */
+    }
+
+    .banner-text {
+        position: absolute; /* Position the text over the image */
+        top: 50%; /* Move it to the center vertically */
+        left: 30%; /* Move it to the center horizontally */
+        transform: translate(-50%, -50%); /* Ensure exact centering */
+        color: white; /* Make the text stand out */
+        text-align: center; /* Center the text */
+    }
+
+    .banner-text h1 {
+        font-size: 48px; /* Main heading size */
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .banner-text p {
+        font-size: 18px; /* Sub-heading size */
+        margin-top: 10px;
+    }
+    .slideshow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Send the slideshow behind the content */
+    overflow: hidden;
+}
+
+        .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: slideAnimation 15s infinite;
+    opacity: 0;
+}
+        .slide:nth-child(1) {
+    background-image: url('https://img.freepik.com/free-photo/top-view-vegetables-composition-tomatoes-bell-peppers-lemon-dark-background_140725-141102.jpg?t=st=1729089355~exp=1729092955~hmac=1859da688f9f2544552b7263ccab73d63e41e9ef12542b708db217e38d749a88&w=1060');
+     animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+    background-image: url('https://img.freepik.com/free-photo/flat-lay-roped-label-lunch-box_23-2147866412.jpg?t=st=1729104848~exp=1729108448~hmac=0bda2658928fec3d6aa6267f0a8d59caf64c26a329f5c65be7d6af8d586468e9&w=1380');
+     animation-delay: 5s;
+}
+
+.slide:nth-child(3) {
+    background-image: url('https://img.freepik.com/free-photo/abundance-fresh-ripe-healthy-groceries-outdoors-generated-by-ai_188544-42306.jpg?t=st=1729105626~exp=1729109226~hmac=022e4f75080465bf7dad4d225b1f9a02f8fac6555edb1777defc40db7fb02007&w=1380');
+     animation-delay: 10s;
+}
+@keyframes slideAnimation {
+     0%, 5% { opacity: 0; }
+    5%, 55% { opacity: 1; }
+    60%, 100% { opacity: 0; }
+}
+
+    /* Styling the Items Container */
+.items-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Creates 5 equal columns */
+    flex-wrap: wrap; /* Items wrap onto the next line if they don't fit */
+    justify-content: space-around; /* Distribute space between items */
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Styling Each Item */
+.item {
+
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    width: 200px; /* Width of each item block */
+    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column; /* Ensures everything stacks vertically */
+    justify-content: space-between; /* Ensure space between image and button */
+}
+
+.item img {
+    width: 100%; /* Ensures the image fits in the item container */
+    height: 150px;
+    object-fit: cover; /* Ensure images cover the area without distortion */
+    border-radius: 5px;
+}
+
+.item-name {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.item-price {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.add-to-cart {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: auto; /* Pushes the button to the bottom */
+}
+
+.add-to-cart:hover {
+    background-color: #218838;
+}
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center items horizontally */
+    margin: 10px 0; /* Space around controls */
+}
+
+.quantity-controls button {
+    background-color: #f0f0f0; /* Background color for buttons */
+    border: 1px solid #ccc; /* Border for buttons */
+    padding: 5px 10px; /* Padding inside buttons */
+    cursor: pointer; /* Pointer on hover */
+}
+
+.quantity-controls input {
+    width: 50px; /* Width of the quantity input */
+    text-align: center; /* Center the number */
+    border: 1px solid #ccc; /* Border for input */
+    margin: 0 5px; /* Space between buttons and input */
+}
+
+.order-button-container {
+    text-align: center; /* Center the button horizontally */
+    margin: 20px 0; /* Add some space around the button */
+}
+
+.ordered-items-button {
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 16px; /* Font size */
+}
+
+.ordered-items-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.ordered-items-list {
+    margin: 20px auto; /* Center the container */
+    padding: 10px;
+    max-width: 600px; /* Set a max width for the list */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add some shadow for depth */
+}
+
+table {
+    width: 100%; /* Make the table full width */
+    border-collapse: collapse; /* Merge borders */
+}
+
+th, td {
+    padding: 10px; /* Add padding to cells */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #eee; /* Separate rows */
+}
+
+th {
+    background-color: #f2f2f2; /* Light background for header */
+    font-weight: bold; /* Bold header text */
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+.ordered-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.ordered-items-table th, .ordered-items-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.ordered-items-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.select-item {
+    cursor: pointer;
+}
+
+#delete-button-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    margin-top: 20px; /* Space between the table and the button */
+    margin-bottom: 40px; /* Space between the button and the footer */
+}
+
+#delete-selected {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#delete-selected:hover {
+    background-color: #c0392b;
+}
+
+
+#proceed-button-container {
+    text-align: center; /* Center align proceed button */
+    margin-top: 20px; /* Space above the proceed button */
+    margin-bottom: 40px; /* Space between the button and the footer */
+
+
+#proceed-to-pay{
+    background-color:  #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#proceed-to-pay:hover {
+    background-color: #c0392b;
+}
+
+
+    </style>
+
+</head>
+</head>
+<body>
+    
+    <header class="header">
+        <a href="#" id="logo">Super <span>Mart</span></a>
+        <nav class="navbar">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Categories</a>
+                <div class="dropdown-content">
+                    <a href="freshp.html">fresh Products</a>
+                    <a href="bakeryform.html">Bakery Items</a>
+                    <a href="bev.html">Beverages</a>
+                    <a href="sweet.html">Sweet & Snacks</a>
+                    <a href="house.html">Household Items</a>
+                    <a href="heallth.html">Health & Beauty</a>
+                    <a href="liquors.html">Liquors</a>
+                    <a href="petcare.html">Pet Care</a>
+                </div>
+            </div>
+            <a href="AboutUs.html">About Us</a>
+            <a href="Contact.html">Contact US</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">User</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Sign In</a>
+                    <a href="login.html">Login</a>
+                </div>
+            </div>
+        </nav>
+       
+
+    </header>
+
+    <!-- Image Below Header -->
+<div class="banner">
+    <img src="https://img.freepik.com/free-photo/shopping-cart-with-wooden-elements_23-2148879396.jpg?t=st=1728883471~exp=1728887071~hmac=6d7833dc4cb7fc2e6f43a5c382dfe79b8e403593c537fa9fb5d66e1a860bfad4&w=1380" alt="Supermarket Banner" class="banner-image">
+     <img src="https://img.freepik.com/free-photo/flat-lay-roped-label-lunch-box_23-2147866412.jpg?t=st=1728920940~exp=1728924540~hmac=6e4c2ea89d1958515fbadc9b072d0becb0885b5d45850f71264d97eb054b9b96&w=1380" class="banner-image" alt="Banner Image 2" style="display: none;">
+        <img src="https://img.freepik.com/free-photo/shopping-cart-with-cereals_23-2148589726.jpg?t=st=1728920692~exp=1728924292~hmac=983be8e61bff159ee89d58cbfc28f662490d2d7350a4e163174a67ffc8970729&w=1380" class="banner-image" alt="Banner Image 3" style="display: none;">
+        <img src="https://img.freepik.com/free-photo/flat-lay-vegetables-frame_23-2148516769.jpg?t=st=1728921325~exp=1728924925~hmac=15ab0511037dd35cf76647070d24bb0bc5eb4d9ee72c5143881ec90238d9a847&w=1380" class="banner-image" alt="Banner Image 3" style="display: none;">
+     <div class="banner-text">
+        <h1>We'll Carefully Hand Pick Your Shopping</h1>
+        <p>Just the way you Like...!</p>
+    </div>
+</div>
+<div class="slideshow-container">
+        <div class="slideshow">
+            <div class="slide fade"></div>
+            <div class="slide fade"></div>
+            <div class="slide fade"></div>
+        </div>
+    </div>
+
+<!-- Items Section Below Sidebar -->
+<div class="items-container">
+    <div class="item">
+        <img src="https://objectstorage.ap-mumbai-1.oraclecloud.com/n/softlogicbicloud/b/cdn/o/products/600-600/112930--01--1697601625.jpeg" alt="Item 1" class="item-image">
+        <h3 class="item-name">VIM Dishwash liquid lime 500ml</h3>
+        <p class="item-price">Rs 340.00</p>
+        <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+         <button class="add-to-cart" 
+                data-item-name="VIM Dishwash liquid lime 500ml" 
+                data-unit-price="340.00">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <img src="https://supiripola.lk/cdn/shop/products/flora-paper-serviettes-2ply-100s_1080x.jpg?v=1660927068" alt="Item 2" class="item-image">
+        <h3 class="item-name">Flora Paper Serviettes</h3>
+        <p class="item-price">Rs 355.00</p>
+        <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+        <button class="add-to-cart" 
+                data-item-name="Flora Paper Serviettes" 
+                data-unit-price="355.00">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <img src="https://img.drz.lazcdn.com/static/lk/p/d23a81958ebcca5e5bdc3de7ca918e0a.jpg_720x720q80.jpg" alt="Item 3" class="item-image">
+        <h3 class="item-name">Sunlight Detergent Powder 1Kg</h3>
+        <p class="item-price">Rs 285.00</p>
+        <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+         <button class="add-to-cart" 
+                data-item-name="Sunlight Detergent Powder 1Kg" 
+                data-unit-price="285.00">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <img src="https://gainmart.lk/cdn/shop/products/Pic123487_350x350.jpg?v=1677643551" alt="Item 3" class="item-image">
+        <h3 class="item-name">Signal Strong Teeth Toothpaste 120g</h3>
+        <p class="item-price">Rs 180.00</p>
+        <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+        <button class="add-to-cart" 
+                data-item-name="Signal Strong Teeth Toothpaste 120g" 
+                data-unit-price="180.00">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <img src="https://gainmart.lk/cdn/shop/products/Pic115284_350x350.jpg?v=1653539711" alt="Item 3" class="item-image">
+        <h3 class="item-name">Sunlight Soap Pink Floral</h3>
+        <p class="item-price">Rs 150.00</p>
+        <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+         <button class="add-to-cart" 
+                data-item-name="Sunlight Soap Pink Floral" 
+                data-unit-price="150.00">Add to Cart</button>
+    </div>
+
+     <div class="item">
+        <img src="https://m.media-amazon.com/images/I/51tYPygTuTL._SL1000_.jpg" alt="Item 3" class="item-image">
+        <h3 class="item-name">Dettol Handwash 200ml</h3>
+        <p class="item-price">Rs 580.00</p>
+         <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+         <button class="add-to-cart" 
+                data-item-name="Dettol Handwash 200ml" 
+                data-unit-price="580.00">Add to Cart</button>
+    </div>
+
+     <div class="item">
+        <img src="https://exspresscheap.ru/images/detailed/2/7f827948a2f6775d053815df7b51edfe.png" alt="Item 3" class="item-image">
+        <h3 class="item-name">Lifebouy Soap Kohomba</h3>
+        <p class="item-price">Rs 150.00</p>
+        <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+         <button class="add-to-cart" 
+                data-item-name="Lifebouy Soap Kohomba" 
+                data-unit-price="150.00">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <img src="https://objectstorage.ap-mumbai-1.oraclecloud.com/n/softlogicbicloud/b/cdn/o/products/600-600/112717--01--1555686805.jpeg" alt="Item 3" class="item-image">
+        <h3 class="item-name">Harpic Fresh Pine 750ml</h3>
+        <p class="item-price">Rs 675.00</p>
+        <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+        <button class="add-to-cart" 
+                data-item-name="Harpic Fresh Pine 750ml" 
+                data-unit-price="675.00">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <img src="https://quickee.com/wp-content/uploads/2022/10/Signal_Deep_Clean_Toothbrush_12fec46d-f22f-4015-9835-519c7ca4637f.png" alt="Item 3" class="item-image">
+        <h3 class="item-name">Signal Toothbrush Deep Clean</h3>
+        <p class="item-price">Rs 160.00</p>
+        <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+         <button class="add-to-cart" 
+                data-item-name="Signal Toothbrush Deep Clean" 
+                data-unit-price="160.00">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <img src="https://www.sunonline.lk/cdn/shop/products/download_f9938c9e-5075-4cbb-ba50-9a777fe7bb47_800x.jpg?v=1652865901" alt="Item 3" class="item-image">
+        <h3 class="item-name">Soorya Wax Matches</h3>
+        <p class="item-price">Rs 240.00</p>
+        <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+         <button class="add-to-cart" 
+                data-item-name="Soorya Wax Matches" 
+                data-unit-price="240.00">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <img src="https://i0.wp.com/catchme.lk/wp-content/uploads/harpic-bathroom-cleaner-lemon-500ml-15982586869693.webp" alt="Item 3" class="item-image">
+        <h3 class="item-name">Harpic Barthroom Cleaner Lemon 500ml</h3>
+        <p class="item-price">Rs 385.00</p>
+        <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+         <button class="add-to-cart" 
+                data-item-name="Harpic Barthroom Cleaner Lemon 500ml" 
+                data-unit-price="385.00">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <img src="https://www.kiraanastore.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/R/i/Rin_1_2.jpg" alt="Item 3" class="item-image">
+        <h3 class="item-name">Rin Refreash Lime & Rose 1Kg</h3>
+        <p class="item-price">Rs 360.00</p>
+        <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+        <button class="add-to-cart" 
+                data-item-name="Rin Refreash Lime & Rose 1Kg" 
+                data-unit-price="360.00">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjKFjMIBSGk6Cjh8hidekfYxzr-ikTVWs5lg&s" alt="Item 3" class="item-image">
+        <h3 class="item-name">Closeup Gel Toothpaste 120g</h3>
+        <p class="item-price">Rs 410.00</p>
+        <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+        <button class="add-to-cart" 
+                data-item-name="Closeup Gel Toothpaste 120g" 
+                data-unit-price="410.00">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <img src="https://static-01.daraz.lk/p/2196ca4c12706f6e8f34217d010aae45.jpg" alt="Item 3" class="item-image">
+        <h3 class="item-name">Fems Aya Drytex Sanitary Napkins 85</h3>
+        <p class="item-price">Rs 150.00</p>
+        <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+        <button class="add-to-cart" 
+                data-item-name="Fems Aya Drytex Sanitary Napkins 85" 
+                data-unit-price="150.00">Add to Cart</button>
+    </div>
+
+    <div class="item">
+        <img src="https://img.drz.lazcdn.com/static/lk/p/da3a1520dacee91aa8e83a5a1453eafd.jpg_960x960q80.jpg_.webp" alt="Item 3" class="item-image">
+        <h3 class="item-name">Ninja Vaporizer Refill 60 Nights 42ml</h3>
+        <p class="item-price">Rs 485.00</p>
+        <div class="quantity-controls">
+        <button class="decrease">&#8722;</button>
+        <input type="number" class="quantity" value="1" min="1" readonly>
+        <button class="increase">&#43;</button>
+    </div>
+         <button class="add-to-cart" 
+                data-item-name="Ninja Vaporizer Refill 60 Nights 42ml" 
+                data-unit-price="485.00">Add to Cart</button>
+    </div>
+
+</div>
+
+
+
+
+
+    <div class="shopping-cart">
+        <div class="shopping-box">
+            <i class="fas fa-times"></i>
+            <img src="images/tommato2.png" alt="Tomato">
+            <div class="shopping-content">
+                <h3>Organic Food</h3>
+                <span class="quantity">1</span>
+                <span class="multiply">x</span>
+                <span class="price">$4.00</span>
+            </div>
+        </div>
+    </div>
+
+
+   <!-- JavaScript for handling Add to Cart button clicks -->
+    <script>
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Item added to cart!');
+            });
+        });
+
+        document.querySelectorAll('.item').forEach(item => {
+    const decreaseButton = item.querySelector('.decrease');
+    const increaseButton = item.querySelector('.increase');
+    const quantityInput = item.querySelector('.quantity');
+
+    decreaseButton.addEventListener('click', () => {
+        let currentQuantity = parseInt(quantityInput.value);
+        if (currentQuantity > 1) {
+            quantityInput.value = currentQuantity - 1; // Decrease quantity
+        }
+    });
+
+    increaseButton.addEventListener('click', () => {
+        let currentQuantity = parseInt(quantityInput.value);
+        quantityInput.value = currentQuantity + 1; // Increase quantity
+    });
+});
+
+    </script>
+
+    <script>
+let currentIndex = 0;
+const slides = document.querySelectorAll('.banner-image');
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.style.display = (i === index) ? 'block' : 'none';
+    });
+}
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length; // Loop back to the first slide
+    showSlide(currentIndex);
+}
+
+// Automatically change slide every 5 seconds
+setInterval(nextSlide, 5000);
+
+// Show the first slide initially
+showSlide(currentIndex);
+</script>
+
+<script>
+
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const itemName = button.getAttribute('data-item-name');
+        const unitPrice = parseFloat(button.getAttribute('data-unit-price'));
+        const quantity = parseInt(button.parentElement.querySelector('.quantity').value);
+        const totalPrice = unitPrice * quantity;
+
+        const formData = new FormData();
+        formData.append('item_name', itemName);
+        formData.append('unitPrice', unitPrice);
+        formData.append('quantity', quantity);
+        formData.append('total_price', totalPrice);
+
+        fetch('http://localhost/supermarket/Project%20IAWD/IAWD%20ASS/add_to_cart.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    });
+});
+
+</script>
+
+ <div class="order-button-container">
+    <button id="ordered-items" class="ordered-items-button" onclick="window.location.href='payment.html'">View Ordered Items</button>
+</div>
+
+<!-- This is where the ordered items will be displayed -->
+<div id="ordered-items-section" style="display: none;">
+    <table>
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Item Name</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tbody id="ordered-items-body">
+            <!-- Ordered items will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+    <div id="delete-button-container">
+    <button id="delete-selected" onclick="deleteSelectedItems()">Delete Selected Items</button>
+    
+</div>
+    <div id="proceed-button-container">
+    <button id="proceed-to-pay">Proceed to Pay</button>
+</div>
+</div>
+
+
+
+    <script>
+      // Function to fetch and display ordered items with selection checkboxes
+function viewOrderedItems() {
+    const orderedItemsSection = document.getElementById('ordered-items-section');
+
+    // Check if the element exists before proceeding
+    if (!orderedItemsSection) {
+        console.error("Error: 'ordered-items-section' not found in the DOM.");
+        return;
+    }
+
+    // Toggle visibility of ordered items
+    if (orderedItemsSection.style.display === 'none' || orderedItemsSection.style.display === '') {
+        fetch('http://localhost/supermarket/Project%20IAWD/IAWD%20ASS/retreive_ordered_items.php')
+        .then(response => response.json())
+        .then(data => {
+            const orderedItemsBody = document.getElementById('ordered-items-body');
+            orderedItemsBody.innerHTML = ''; // Clear the table body
+
+            if (data.length === 0) {
+                orderedItemsBody.innerHTML = '<tr><td colspan="5">No items found</td></tr>';
+            } else {
+                data.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><input type="checkbox" class="select-item" data-item-name="${item.item_name}"></td>
+                        <td>${item.item_name}</td>
+                        <td>${parseFloat(item.unitPrice).toFixed(2)}</td>
+                        <td>${item.quantity}</td>
+                        <td>${parseFloat(item.total_price).toFixed(2)}</td>
+                    `;
+                    orderedItemsBody.appendChild(row);
+                });
+            }
+
+            // Show the ordered items section
+            orderedItemsSection.style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error fetching ordered items:', error);
+        });
+    } else {
+        // Hide the ordered items section if already visible
+        orderedItemsSection.style.display = 'none';
+    }
+}
+
+// Function to handle deletion of selected items
+function deleteSelectedItems() {
+    const selectedItems = [];
+    const checkboxes = document.querySelectorAll('.select-item:checked');
+
+    checkboxes.forEach(checkbox => {
+        selectedItems.push(checkbox.getAttribute('data-item-name'));
+    });
+
+    if (selectedItems.length === 0) {
+        alert('No items selected for deletion.');
+        return;
+    }
+
+    fetch('http://localhost/supermarket/Project%20IAWD/IAWD%20ASS/delete_ordered_items.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ items: selectedItems })
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.success) {
+            alert('Selected items deleted successfully.');
+            viewOrderedItems(); // Refresh the ordered items list
+        } else {
+            alert('Error deleting items.');
+        }
+    })
+    .catch(error => {
+        console.error('Error deleting items:', error);
+    });
+}
+
+// Event listener for the delete button
+document.getElementById('delete-selected').addEventListener('click', deleteSelectedItems);
+
+// Event listener for the View Ordered Items button
+document.getElementById('ordered-items').addEventListener('click', viewOrderedItems);
+
+        
+    </script>
+
+    
+
+
+
+ <div class="footer">
+        <p>ABCD Marketing Services Pvt Ltd.<br>No:148, Vauxhall Street, Colombo 2, Sri Lanka.</p>
+        <p>+94 11 2303500<br>(Daily operating hours 8.00 A.M to 8.00 P.M)</p>
+        <p>Quick Links: <a href="home.html">Home</a> | <a href="Catalogue.html">Catalogue & Deals</a> | <a href="Utility.html">Utility bill payments</a> | <a href="Track.html">Track my order</a> | <a href="Categories.html">Categories</a></p>
+        <p>Useful Links: <a href="Privacy.html">Privacy Policy</a> | <a href="FAQ.html">FAQ</a> | <a href="Terms.html">Terms and Conditions</a> | <a href="Stores.html">Stores</a> | <a href="Delivery.html">Delivery grid</a> | <a href="Service.html">Customer Service</a> | <a href="Contact.html">Contact us</a> | <a href="AboutUs.html">About us</a></p>
+        <p class="copyright">© 2024 ABCD Marketing Services Pvt Ltd. All rights reserved.</p>
+    </div>
+
+</div>
+<script>
+document.getElementById('proceed-to-pay').addEventListener('click', function() {
+    // Fetch ordered items from the database
+    fetch('http://localhost/supermarket/Project%20IAWD/IAWD%20ASS/retreive_ordered_items.php')
+    .then(response => response.json())
+    .then(data => {
+        // Check if data is returned correctly
+        if (!data || data.length === 0) {
+            alert("No items found in your order.");
+            return; // Exit the function if no items are found
+        }
+
+        // Calculate total price using total prices from the fetched data
+        const totalPrice = data.reduce((total, item) => total + parseFloat(item.total_price), 0);
+
+        // Store the total price in local storage
+        localStorage.setItem('totalPrice', totalPrice.toFixed(2));
+
+        // Navigate to the payment page
+        window.location.href = 'payment.html'; // Update with the correct path to your payment page
+    })
+    .catch(error => {
+        console.error('Error fetching ordered items:', error);
+        alert("There was an error fetching your order items.");
+    });
+});
+
+</script>
+
+
+</body>
+</html>

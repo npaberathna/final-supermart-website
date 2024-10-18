@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Mart</title>
+    
+    <link rel="stylesheet" href="helthandbeurty.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.min.css">
+     <style>
+        .dropdown:hover .dropbtn {
+            background-color: #575757;
+        }
+        .dropdown {
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer p {
+            margin-bottom: 10px;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    .slideshow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Send the slideshow behind the content */
+    overflow: hidden;
+}
+
+        .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: slideAnimation 15s infinite;
+    opacity: 0;
+}
+        .slide:nth-child(1) {
+    background-image: url('https://img.freepik.com/free-photo/top-view-vegetables-composition-tomatoes-bell-peppers-lemon-dark-background_140725-141102.jpg?t=st=1729089355~exp=1729092955~hmac=1859da688f9f2544552b7263ccab73d63e41e9ef12542b708db217e38d749a88&w=1060');
+     animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+    background-image: url('https://img.freepik.com/free-photo/flat-lay-roped-label-lunch-box_23-2147866412.jpg?t=st=1729104848~exp=1729108448~hmac=0bda2658928fec3d6aa6267f0a8d59caf64c26a329f5c65be7d6af8d586468e9&w=1380');
+     animation-delay: 5s;
+}
+
+.slide:nth-child(3) {
+    background-image: url('https://img.freepik.com/free-photo/abundance-fresh-ripe-healthy-groceries-outdoors-generated-by-ai_188544-42306.jpg?t=st=1729105626~exp=1729109226~hmac=022e4f75080465bf7dad4d225b1f9a02f8fac6555edb1777defc40db7fb02007&w=1380');
+     animation-delay: 10s;
+}
+@keyframes slideAnimation {
+     0%, 5% { opacity: 0; }
+    5%, 55% { opacity: 1; }
+    60%, 100% { opacity: 0; }
+}
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slideshow">
+            <div class="slide fade"></div>
+            <div class="slide fade"></div>
+            <div class="slide fade"></div>
+        </div>
+    </div>
+    <nav>
+        <input type="checkbox" id="dahami">
+        <label for="dahami">
+            <i class="fas fa-bars" id="sura"></i>
+            <i class="fas fa-times" id="sika"></i>
+        </label>
+        <h1 id="sm">Super Mart</h1>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="freshp.html">Fresh Products</a></li>
+            <li><a href="bakery.html">Bakery Items</a></li>
+            <li><a href="sweet.html">Sweet & Snacks</a></li>
+            <li><a href="house.html">Household Items</a></li>
+            <li><a href="health.html">Health & Beauty</a></li>
+           
+            
+           
+        </ul>
+    </nav>
+       
+    
+    
+ 
+        <div class="btext">
+            <h2>Health & Beauty</h2>
+            <label></label>
+        </div>
+    
+        <div class="praduct">
+            <div class="box">
+                <img src="images\118817--01--1656939783.webp"alt="">
+                <h3 id="bb1">4Ever Cream Suncontrol 100G
+                    
+                    </h3>
+                <div class="content">
+                    <h4 id="bbb1">Rs 255.00</h4>
+                    <a href="#"></a>
+                </div>
+                <div class="sukumala">
+             <b> Enter Quentiy </b>  <input type="number" id="q1">
+                    <button onclick="cart1()">ADD TO CART</button>
+                </div>
+            <div id="range"><p id="b1"></p></div>
+            </div>
+           
+        
+        <div class="box">
+            <img src="images\119056--01--1632495930.webp" alt="">
+            <h3 id="bb2">Facial Wash
+              </h3>
+            <div class="content">
+                <span id="bbb2">  Rs 360.00</span>
+                <a href="#"></a>
+            </div>
+            <div class="sukumala">
+                <b> Enter Quentiy </b>  <input type="number" id="q2">
+                <button onclick="cart2()">ADD TO CART</button>
+            </div>
+        <div id="range"><p id="b2"></p></div>
+        </div>
+       
+    
+    <div class="box">
+        <img src="images\111996--01--1555682507.webp" alt="">
+        <h3 id="bb3">
+            Head & Shoulders Anti Dandruff Shampoo Lemon Fresh 72Ml
+          
+            </h3>
+        <div class="content">
+            <span id="bbb3"> Rs 200.00</span>
+            <a href="#"></a>
+        </div>
+        <div class="sukumala">
+            <b> Enter Quentiy </b>  <input type="number" id="q3">
+            <button onclick="cart3()">ADD TO CART</button>
+        </div>
+    <div id="range"><p id="b3"></p></div>
+    </div>
+   
+
+<div class="box">
+    <img src="images\112122--01--1697601024.webp" alt="">
+    <h3 id="bb4">Dove Shampoo Intense Repair 180Ml
+       
+       
+    </h3>
+    <div class="content">
+        <span id="bbb4"> Rs 250.00</span>
+        <a href="#"></a>
+    </div>
+    <div class="sukumala">
+        <b> Enter Quentiy </b>  <input type="number" id="q4">
+        <button onclick="cart4()">ADD TO CART</button>
+    </div>
+<div id="range"><p id="b4"></p></div>
+</div>
+
+
+<div class="box">
+    <img src="images\114025--01--1555687833.webp"alt="">
+    <h3 id="bb5">Strepils
+        
+        </h3>
+    <div class="content">
+        <span id="bbb5">Rs 825.00</span>
+        <a href="#"></a>
+    </div>
+    <div class="sukumala">
+        <b> Enter Quentiy </b>  <input type="number" id="q5">
+        <button onclick="cart5()">ADD TO CART</button>
+    </div>
+<div id="range"><p id="b5"></p></div>
+</div>
+
+
+<div class="box">
+    <img src="images\114050--01--1555687834.webp" alt="">
+    <h3 id="bb6">
+        Vicks Inhaler 0.5Ml Per 1unit(s)<h3>
+    <div class="content">
+        <span id="bbb6"> Rs 85.00</span>
+        <a href="#"></a>
+    </div>
+    <div class="sukumala">
+        <b> Enter Quentiy </b>  <input type="number" id="q6">
+        <button onclick="cart6()">ADD TO CART</button>
+    </div>
+<div id="range"><p id="b6"></p></div>
+</div>
+
+
+<div class="box">
+    <img src="images\117114--01--1595587452.webp" alt="">
+    <h3 id="bb7">Link Musclegard Herbal Cream 25G Per 1unit(s)
+       
+        </h3>
+    <div class="content">
+        <span id="bbb7"> Rs 160.00</span>
+        <a href="#"></a>
+    </div>
+    <div class="sukumala">
+        <b> Enter Quentiy </b>  <input type="number" id="q7">
+        <button onclick="cart7()">ADD TO CART</button>
+    </div>
+<div id="range"><p id="b7"></p></div>
+</div>
+
+
+<div class="box">
+    <img src="images\119058--01--1632495931.webp"alt="">
+    <h3 id="bb8">Facial Wash
+        </h3>
+    <div class="content">
+        <span id="bbb8"> Rs 140.00</span>
+        <a href="#"></a>
+    </div>
+    <div class="sukumala">
+        <b> Enter Quentiy </b>  <input type="number" id="q8">
+        <button onclick="cart8()">ADD TO CART</button>
+    </div>
+<div id="range"><p id="b8"></p></div>
+</div>
+
+
+<div class="box">
+    <img src="images\119228--01--1630434152.webp"alt="">
+    <h3 id="bb9"> 
+         Shampoo Anti Dandruff Fenugreek 200Ml
+    </h3>
+    <div class="content">
+        <span id="bbb9">Rs 150.00</span>
+        <a href="#"></a>
+    </div>
+    <div class="sukumala">
+        <b> Enter Quentiy </b>  <input type="number" id="q9">
+        <button onclick="cart9()">ADD TO CART</button>
+    </div>
+<div id="range"><p id="b9"></p></div>
+</div>
+
+
+<div class="box">
+    <img src="images\120810--01--1633189686.webp"alt="">
+    <h3 id="bb10">
+        Kumarika Conditioner Thick & Strong 80Ml</h3>
+    <div class="content">
+        <span id="bbb10">Rs 170.00</span>
+        <a href="#"></a>
+    </div>
+    <div class="sukumala">
+        <b> Enter Quentiy </b>  <input type="number" id="q10">
+        <button onclick="cart10()">ADD TO CART</button>
+    </div>
+<div id="range"><p id="b10"></p></div>
+</div>
+<div class="box">
+    <img src="images\123084--01--1672735574.webp"alt="">
+    <h3 id="bb11">
+        
+Earth Essence Herbal Hair Conditioner 250Ml</h3>
+    <div class="content">
+        <span id="bbb11">Rs 100.00</span>
+        <a href="#"></a>
+    </div>
+    <div class="sukumala">
+        <b> Enter Quentiy </b>  <input type="number" id="q11">
+        <button onclick="cart11()">ADD TO CART</button>
+       
+    </div>
+<div id="range"><p id="b11"></p></div>
+    </div>
+
+<div class="box">
+    <img src="images\Beam Paawatta Thalsookiri Syrup 200Ml.webp" alt="">
+    <h3 id="bb12">Beam Paawatta Thalsookiri Syrup 200Ml Per 1unit(s)
+        
+        </h3>
+    <div class="content">
+        <span id="bbb12">Rs 140.00</span>
+        <a href="#"></a>
+    </div>
+    <div class="sukumala">
+        <b> Enter Quentiy </b>  <input type="number" id="q12">
+        <button onclick="cart12()">ADD TO CART</button>
+
+    </div>
+<div id="range"><p id="b12"></p></div>
+</div>
+
+</div>
+
+<div id="cart">
+<div class="carthedre">
+    <h3 class="carthedert">My Cart</h3>
+   
+</div>
+<div class="cartmid">
+    <h3>Produt Name - </h3><p id="name"></p><br>
+    <h3>Produt Quntiy - </h3><p id="qun"></p><br>
+
+    <h3>Produt Price - </h3><p id="price"></p><br>
+</div>
+<div class="cartfooter">
+    <h3>Total Price - </h3><p id="tprice"></p>
+
+
+</div>
+
+</div>
+<script src="helthandbeuty.js">
+
+</script>
+<script src="script.js"></script>
+
+    <div class="footer">
+        <p>ABCD Marketing Services Pvt Ltd.<br>No:148, Vauxhall Street, Colombo 2, Sri Lanka.</p>
+        <p>+94 11 2303500<br>(Daily operating hours 8.00 A.M to 8.00 P.M)</p>
+        <p>Quick Links: <a href="home.html">Home</a> | <a href="Catalogue.html">Catalogue & Deals</a> | <a href="Utility.html">Utility bill payments</a> | <a href="Track.html">Track my order</a> | <a href="Categories.html">Categories</a></p>
+        <p>Useful Links: <a href="Privacy.html">Privacy Policy</a> | <a href="FAQ.html">FAQ</a> | <a href="Terms.html">Terms and Conditions</a> | <a href="Stores.html">Stores</a> | <a href="Delivery.html">Delivery grid</a> | <a href="Service.html">Customer Service</a> | <a href="Contact.html">Contact us</a> | <a href="AboutUs.html">About us</a></p>
+        <p class="copyright">© 2024 ABCD Marketing Services Pvt Ltd. All rights reserved.</p>
+    </div>
+
+
+</body>
+</html>

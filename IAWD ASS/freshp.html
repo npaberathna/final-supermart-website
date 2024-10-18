@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Super mart</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.min.css">
+    <link rel="stylesheet" href="bakerystyles.css">
+    <style>
+        .dropdown:hover .dropbtn {
+            background-color: #575757;
+        }
+        .dropdown {
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer p {
+            margin-bottom: 10px;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    .slideshow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Send the slideshow behind the content */
+    overflow: hidden;
+}
+
+        .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: slideAnimation 15s infinite;
+    opacity: 0;
+}
+        .slide:nth-child(1) {
+    background-image: url('https://img.freepik.com/free-photo/top-view-vegetables-composition-tomatoes-bell-peppers-lemon-dark-background_140725-141102.jpg?t=st=1729089355~exp=1729092955~hmac=1859da688f9f2544552b7263ccab73d63e41e9ef12542b708db217e38d749a88&w=1060');
+     animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+    background-image: url('https://img.freepik.com/free-photo/flat-lay-roped-label-lunch-box_23-2147866412.jpg?t=st=1729104848~exp=1729108448~hmac=0bda2658928fec3d6aa6267f0a8d59caf64c26a329f5c65be7d6af8d586468e9&w=1380');
+     animation-delay: 5s;
+}
+
+.slide:nth-child(3) {
+    background-image: url('https://img.freepik.com/free-photo/abundance-fresh-ripe-healthy-groceries-outdoors-generated-by-ai_188544-42306.jpg?t=st=1729105626~exp=1729109226~hmac=022e4f75080465bf7dad4d225b1f9a02f8fac6555edb1777defc40db7fb02007&w=1380');
+     animation-delay: 10s;
+}
+@keyframes slideAnimation {
+     0%, 5% { opacity: 0; }
+    5%, 55% { opacity: 1; }
+    60%, 100% { opacity: 0; }
+}
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slideshow">
+            <div class="slide fade"></div>
+            <div class="slide fade"></div>
+            <div class="slide fade"></div>
+        </div>
+    </div>
+    
+    <header class="header">
+        <a href="#" id="logo">Super <span>Mart</span></a>
+        <nav class="navbar">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Categories</a>
+                <div class="dropdown-content">
+                    <a href="freshp.html">fresh Products</a>
+                    <a href="bakeryform.html">Bakery Items</a>
+                    <a href="bev.html">Beverages</a>
+                    <a href="sweet.html">Sweet & Snacks</a>
+                    <a href="house.html">Household Items</a>
+                    <a href="health.html">Health & Beauty</a>
+                    <a href="liquors.html">Liquors</a>
+                    <a href="petcare.html">Pet Care</a>
+                </div>
+            </div>
+            <a href="AboutUs.html">About Us</a>
+            <a href="Contact.html">Contact US</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">User</a>
+                <div class="dropdown-content">
+                    <a href="signin.html">Sign In</a>
+                    <a href="login.html">Login</a>
+                </div>
+            </div>
+        </nav>
+       
+
+    </header>
+     <div class="organic-menu">
+
+    <h1><span>Fresh Items</span></h1>
+
+    <main>
+        <section class="content">
+            <section class="Organic foods">
+                <h2 class="title"><span>Organic Items</span></h2>
+                <div class="items-container organicfoods-row">
+                    <!-- Organic items -->
+                    <div class="item">
+                        <img src="https://essstr.blob.core.windows.net/essimg/ItemAsset/Pic911081.jpg" alt="Pumpkin" width="200" height="200">
+                        <p>Pumpkin 100g - LKR 16.00</p>
+                        <input type="number" id="Pumpkin-quantity" min="1" value="1">
+                        <button onclick="addToCart('Pumpkin', parseInt(document.getElementById('Pumpkin-quantity').value), 16.00)">Add to Cart</button>
+                    </div>
+                    
+                    
+                    <div class="item">
+                        <img src="https://th.bing.com/th/id/OIP.1PSfnoGg01AnahisxVDLkAHaE_?rs=1&pid=ImgDetMain" alt="Carrot" width="200" height="200">
+                        <p>Carrot 100g - LKR 24.00</p>
+                        <input type="number" id="carrot-quantity" min="1" value="1">
+                        <button onclick="addToCart('carrot', parseInt(document.getElementById('carrot-quantity').value), 24.00)">Add to Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="https://th.bing.com/th/id/R.938bf8388fca36227adba4e3bf86b5ef?rik=pJ0avPGww8R8xg&riu=http%3a%2f%2ffatafut.in%2fcontent%2fimages%2fthumbs%2f0002609_organic-green-chillies-500g_550.jpeg&ehk=14ksOGNAt%2fTOQ0hH9W7WCPqlRc2XjqdzWcsbG4Zn7nA%3d&risl=&pid=ImgRaw&r=0" alt="green chilies"width="200" height="200">
+                        <p>Chilies -100g - LKR 25.00</p>
+                        <input type="number" id="green chilies-quantity" min="1" value="1">
+                        <button onclick="addToCart('green chilies', parseInt(document.getElementById('green chilies-quantity').value), 25.00)">Add to Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="https://essstr.blob.core.windows.net/essimg/ItemAsset/Pic921029.jpg" alt="Organic Papaya"width="200" height="200">
+                        <p> Papaya - 100g - LKR 20.00</p>
+                        <input type="number" id="Organic Papaya-quantity" min="1" value="1">
+                        <button onclick="addToCart('Organic Papaya', parseInt(document.getElementById('Organic Papaya-quantity').value), 20.00)">Add to Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="https://th.bing.com/th/id/OIP.4jaDolOgQkmp97yU1WUMcgHaHa?rs=1&pid=ImgDetMain" alt="banana"width="200" height="200">
+                        <p> banana - 100g - LKR 40.00</p>
+                        <input type="number" id="banana-quantity" min="1" value="1">
+                        <button onclick="addToCart('banana', parseInt(document.getElementById('banana-quantity').value), 40.00)">Add to Cart</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="Vegetables ">
+                <h2>Vegetables</h2>
+                <div class="items-container Vegetables -row">
+                    <!-- Vegetables -->
+                    
+                    <div class="item">
+                        <img src="https://essstr.blob.core.windows.net/essimg/350x/Small/Pic912005.jpg" alt="coconut"width="200" height="200">
+                        <p>   Coconuts - 01  -  LKR 125.00  </p>
+                        <input type="number" id="coconut-quantity" min="1" value="1">
+                        <button onclick="addToCart('coconut', parseInt(document.getElementById('coconut-quantity').value), 125.00)">Add to Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="https://essstr.blob.core.windows.net/essimg/350x/Small/Pic913005.jpg" alt="Bell Pepper"width="200" height="200">
+                        <p>BellPepper-100g-LKR 75.00</p>
+                        <input type="number" id="Bell Pepper-quantity" min="1" value="1">
+                        <button onclick="addToCart('Bell Pepper', parseInt(document.getElementById('Bell Pepper-quantity').value), 75.00)">Add to Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="https://essstr.blob.core.windows.net/essimg/350x/Small/Pic913040.jpg" alt="Tomattoes"width="200" height="200">
+                        <p>Tomattoes - 100g - LKR 13.00</p>
+                        <input type="number" id="family-quantity" min="1" value="1">
+                        <button onclick="addToCart('Tomattoes', parseInt(document.getElementById('family-quantity').value), 13.00)">Add to Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="https://spar2u.lk/cdn/shop/files/BigOnion_d90991dd-4a81-47f6-805d-56dde7e12d9b_260x338.jpg?v=1714738085" alt="onion"width="200" height="200">
+                        <p>Fresh Onion - 100g - LKR 22.00</p>
+                        <input type="number" id="Onion -quantity" min="1" value="1">
+                        <button onclick="addToCart('Onion ', parseInt(document.getElementById('Onion -quantity').value), 22.00)">Add to Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="https://essstr.blob.core.windows.net/essimg/ItemAsset/Pic914044.jpg" alt="Ribbed Gourd"width="200" height="200">
+                        <p>Ribbed Gourd - 100g - LKR 21.00</p>
+                        <input type="number" id="Ribbed Gourd-quantity" min="1" value="1">
+                        <button onclick="addToCart('Ribbed Gourd', parseInt(document.getElementById('Ribbed Gourd-quantity').value), 21.00)">Add to Cart</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="Fruits">
+                <h2>Fruits</h2>
+                <div class="items-container Fruits-row">
+                    <!-- Fruits -->
+                    <div class="item">
+                        <img src="https://essstr.blob.core.windows.net/essimg/ItemAsset/Pic924019.jpg" alt="Grapes - Red" width="200" height="200">
+                        <p>Grapes-Red - 100g - LKR 50.00</p>
+                        <input type="number" id="Grapes-Red-quantity" min="1" value="1">
+                        <button onclick="addToCart('Grapes-Red', parseInt(document.getElementById('Grapes-Red-quantity').value), 50.00)">Add to Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="https://essstr.blob.core.windows.net/essimg/ItemAsset/Pic924000.jpg" alt="Apple - Fuji" width="200" height="200">
+                        <p>Apple-Fuji-100g - LKR 180.00</p>
+                        <input type="number" id="Apple-Fuji-quantity" min="1" value="1">
+                        <button onclick="addToCart('Apple-Fuji', parseInt(document.getElementById('Apple-Fuji-quantity').value), 180.00)">Add to Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="https://essstr.blob.core.windows.net/essimg/350x/Small/Pic924032.jpg" alt="Pomegranate" width="200" height="200">
+                        <p>Pomegranate (Delum) -100g - LKR 240.00</p>
+                        <input type="number" id="Pomegranate-quantity" min="1" value="1">
+                        <button onclick="addToCart('Pomegranate', parseInt(document.getElementById('Pomegranate-quantity').value), 240.00)">Add to Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="https://essstr.blob.core.windows.net/essimg/ItemAsset/Pic923056.jpg" alt="Mangosteen" width="200" height="200">
+                        <p>Mangosteen - 100g - LKR 220.00</p>
+                        <input type="number" id="Mangosteen-quantity" min="1" value="1">
+                        <button onclick="addToCart('Mangosteen', parseInt(document.getElementById('Mangosteen-quantity').value), 220.00)">Add to Cart</button>
+                    </div>
+                    <div class="item">
+                        <img src="https://essstr.blob.core.windows.net/essimg/ItemAsset/Pic923063.jpg" alt="Melon" width="200" height="200">
+                        <p>Melon - Red Fantasy - LKR 250</p>
+                        <input type="number" id="Melon-quantity" min="1" value="1">
+                        <button onclick="addToCart('Melon - Red Fantasy', parseInt(document.getElementById('Melon-quantity').value), 250.00)">Add to Cart</button>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <aside id="cart-details">
+            <h2>Cart Details</h2>
+            <ul id="cart-items">
+                <!-- Cart items will be displayed here -->
+            </ul>
+            <p id="cart-total">Total: LKR 0</p>
+            <button onclick="saveCart()">Save Cart</button> <!-- Save Button -->
+            <br><br>
+            
+        </aside>
+        
+    </main>
+    
+    <script src="freshproduct.js"></script>
+     <script src="script.js"></script>
+
+    <div class="footer">
+        <p>ABCD Marketing Services Pvt Ltd.<br>No:148, Vauxhall Street, Colombo 2, Sri Lanka.</p>
+        <p>+94 11 2303500<br>(Daily operating hours 8.00a.m to 8.00p.m)</p>
+        <p>Quick Links: <a href="home.html">Home</a> | <a href="Catalogue.html">Catalogue & Deals</a> | <a href="Utility.html">Utility bill payments</a> | <a href="Track.html">Track my order</a> | <a href="Categories.html">Categories</a></p>
+        <p>Useful Links: <a href="Privacy.html">Privacy Policy</a> | <a href="FAQ.html">FAQ</a> | <a href="Terms.html">Terms and Conditions</a> | <a href="Stores.html">Stores</a> | <a href="Delivery.html">Delivery grid</a> | <a href="Service.html">Customer Service</a> | <a href="Contact.html">Contact us</a> | <a href="AboutUs.html">About us</a></p>
+        <p class="copyright">© 2024 ABCD Marketing Services Pvt Ltd. All rights reserved.</p>
+    </div>
+
+</div>
+</body>
+</html>
